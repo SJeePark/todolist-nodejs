@@ -28,9 +28,6 @@
 
 <br>
 설치해주면 알아서 재실행해줌 굉장히 편리하도다<br>
-예시<br>
-"createdAt": "2025-04-04T13:30:22.202Z",<br>
-"updatedAt": "2025-04-04T13:30:22.202Z"
 
 ### Mongoose 메서드
 - findByIdAndUpdate(id, updateObj, options)	ID로 찾고 수정
