@@ -24,6 +24,8 @@
 - nodemon: 코드 바꿀 때마다 다시 실행하기 매우 귀찮잖아요?> 그래서 만들어진 nodemon. 
 - cors: 
 - dotenv: 
+- bcryptjs: 암호화
+
 <br>
 설치해주면 알아서 재실행해줌 굉장히 편리하도다<br>
 예시<br>
