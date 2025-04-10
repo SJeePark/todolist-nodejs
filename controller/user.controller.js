@@ -44,4 +44,24 @@ userController.createUser = async(req, res)=>{
     }
 }
 
+userController.loginWithEmail = async(req, res)=>{
+    try{
+        const{email, password}= req.body
+        const user = await User.findOne({ email }, "-createdAt -updatedAt -__v");
+        //"-객체이름" => 쿼리 결과에서 특정 필드를 제외 (Mongoose 기능!)
+        // User.findOne({ email }, { createdAt: 0, updatedAt: 0, __v: 0 }); 이런 식으로 1과 0으로도 선언 가능함!
+        
+        if(user){
+            const isMatch = bcrypt.compareSync(password, user.password) //암호화된 비번과 입력한 비번 비교해줌(true, false로 나옴)
+            if(isMatch){
+                const token = await user.generateToken();
+                return res.status(200).json({status: "success", user, token})
+            }
+        }
+        throw new Error("아이디 또는 비밀번호가 일치하지 않습니다.")
+    }catch(error){
+        res.status(400).json({status:"fail", error})
+    }
+}
+
 module.exports = userController

@@ -25,6 +25,7 @@
 - cors: 
 - dotenv: 
 - bcryptjs: 암호화
+- jsonwebtoken: 토큰 발행
 
 <br>
 설치해주면 알아서 재실행해줌 굉장히 편리하도다<br>
@@ -36,3 +37,8 @@
 - findOneAndDelete(filter)	조건으로 삭제
 - deleteOne(filter)	조건에 맞는 문서 하나 삭제
 - deleteMany(filter)	조건에 맞는 문서 여러 개 삭제
+- toJSON: object에서 json으로 변환
+
+### 토큰의 유통기한 설정
+- 토큰에도 유통기한이 있는데, 기한을 설정할 수 있다. 
+- 토큰에 {expiresIn:'기간입력(ex:1d(=one day))'}
