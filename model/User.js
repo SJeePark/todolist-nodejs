@@ -23,6 +23,8 @@ const userSchema = Schema({
 userSchema.methods.toJSON = function(){ //위의 스키마를 JSON 형태로 불러온다
     const obj = this._doc;  //이 스키마에서 _doc의 정보만 가져옴
     delete obj.password;    //근데 _doc 안의 정보중 password는 없애고 가져옴옴
+    delete obj.updatedAt;    
+    delete obj.__v;
     return obj;
 }
 

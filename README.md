@@ -42,3 +42,11 @@
 ### 토큰의 유통기한 설정
 - 토큰에도 유통기한이 있는데, 기한을 설정할 수 있다. 
 - 토큰에 {expiresIn:'기간입력(ex:1d(=one day))'}
+
+### next에 대해 알아보자(미들웨어, 체인웨어)
+- next의 기능: 바로 다음 함수를 불러온다. 근데 어떤 함수의 다음인가??? 를 어찌 앎?
+- 우리가 해당 함수를 get 할 때 지정한다.여기서는 user.api.js에서 router.get에서 authenticate를 사용함. 
+=> router.get("/me",  authController.authenticate)
+- 하지만 함수가 하나만 있는 것이 아님 여러개의 함수가 있을 수 있음!
+- router.get("/me",  authController.authenticate, userController.getUser)
+- 이런 경우에는 authenticate이 끝나면, next에 의해 getUser가 실행된다~ 꼬리에 꼬리를 무는 느낌낌
